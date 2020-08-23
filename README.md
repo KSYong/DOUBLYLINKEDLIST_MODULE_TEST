@@ -6,5 +6,5 @@ This is simple doubly linked list data structure module with test program
 
 # 프로그램 구조도
 
-<img width="1097" alt="Screen Shot 2020-08-17 at 6 04 09 PM" src="https://user-images.githubusercontent.com/22342277/90379165-505a0280-e0b5-11ea-8f3a-8b78ec74992c.png">
+<img width="1125" alt="스크린샷 2020-08-23 오후 1 11 21" src="https://user-images.githubusercontent.com/22342277/90970706-313ef300-e543-11ea-90e1-3f503b436e95.png">
 
