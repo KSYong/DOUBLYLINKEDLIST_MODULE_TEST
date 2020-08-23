@@ -1,7 +1,7 @@
 # DOUBLYLINKEDLIST_MODULE_TEST
 This is simple doubly linked list data structure module with test program
 
-# VALGRIND
+# valgrind log file
 /dlist/log.txt
 
 # 프로그램 구조도
