@@ -14,6 +14,7 @@ enum ERROR{
     OBJECT_ERR = -1,
     CREATE_ERR = -1,
     IS_EMPTY = -2,
+    NO_MATCH = -3,
     UNKNOWN = -9
 };
 

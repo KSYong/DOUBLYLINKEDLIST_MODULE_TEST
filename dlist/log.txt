@@ -1,146 +1,75 @@
-==17180== Memcheck, a memory error detector
-==17180== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==17180== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
-==17180== Command: ./test
-==17180== Parent PID: 8837
-==17180== 
---17180-- 
---17180-- Valgrind options:
---17180--    --leak-check=full
---17180--    --show-leak-kinds=all
---17180--    --log-file=log.txt
---17180--    -v
---17180--    --error-limit=no
---17180-- Contents of /proc/version:
---17180--   Linux version 3.10.0-1127.18.2.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) ) #1 SMP Sun Jul 26 15:27:06 UTC 2020
---17180-- 
---17180-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
---17180-- Page sizes: currently 4096, max supported 4096
---17180-- Valgrind library directory: /usr/libexec/valgrind
---17180-- Reading syms from /home/parallels/workspace/DOUBLY_LINKED_LIST_TEST/dlist/test
---17180-- Reading syms from /usr/lib64/ld-2.17.so
---17180--   Considering /usr/lib/debug/.build-id/27/ffd1fbc69569c776e666474eed723395e6d727.debug ..
---17180--   .. build-id is valid
---17180-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
---17180--    object doesn't have a symbol table
---17180--    object doesn't have a dynamic symbol table
---17180-- Scheduler: using generic scheduler lock implementation.
---17180-- Reading suppressions file: /usr/libexec/valgrind/default.supp
-==17180== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-17180-by-parallels-on-localhost.localdomain
-==17180== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-17180-by-parallels-on-localhost.localdomain
-==17180== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-17180-by-parallels-on-localhost.localdomain
-==17180== 
-==17180== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==17180== don't want to do, unless you know exactly what you're doing,
-==17180== or are doing some strange experiment):
-==17180==   /usr/libexec/valgrind/../../bin/vgdb --pid=17180 ...command...
-==17180== 
-==17180== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==17180==   /path/to/gdb ./test
-==17180== and then give GDB the following command
-==17180==   target remote | /usr/libexec/valgrind/../../bin/vgdb --pid=17180
-==17180== --pid is optional if only one valgrind process is running
-==17180== 
---17180-- REDIR: 0x4019e30 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c7ed5 (???)
---17180-- REDIR: 0x4019c00 (ld-linux-x86-64.so.2:index) redirected to 0x580c7eef (???)
---17180-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---17180-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
-==17180== WARNING: new redirection conflicts with existing -- ignoring it
---17180--     old: 0x04019e30 (strlen              ) R-> (0000.0) 0x580c7ed5 ???
---17180--     new: 0x04019e30 (strlen              ) R-> (2007.0) 0x04c2d1b0 strlen
---17180-- REDIR: 0x4019db0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2e300 (strcmp)
---17180-- REDIR: 0x401aa70 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31f90 (mempcpy)
---17180-- Reading syms from /usr/lib64/libc-2.17.so
---17180--   Considering /usr/lib/debug/.build-id/d7/8066a9c36f5fd63e2f6ac851ae3515c4c9792a.debug ..
---17180--   .. build-id is valid
---17180-- REDIR: 0x4ec7130 (libc.so.6:strcasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
---17180-- REDIR: 0x4ec3eb0 (libc.so.6:strnlen) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
---17180-- REDIR: 0x4ec9400 (libc.so.6:strncasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
---17180-- REDIR: 0x4ec6910 (libc.so.6:memset) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
---17180-- REDIR: 0x4ec68c0 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
---17180-- REDIR: 0x4ec58a0 (libc.so.6:__GI_strrchr) redirected to 0x4c2cb70 (__GI_strrchr)
---17180-- REDIR: 0x4ec3dd0 (libc.so.6:__GI_strlen) redirected to 0x4c2d110 (__GI_strlen)
---17180-- REDIR: 0x4ebc6b0 (libc.so.6:malloc) redirected to 0x4c29eec (malloc)
---17180-- REDIR: 0x4ec6ae0 (libc.so.6:__GI_mempcpy) redirected to 0x4c31cc0 (__GI_mempcpy)
---17180-- REDIR: 0x4ecd3c0 (libc.so.6:strchrnul) redirected to 0x4c31ab0 (strchrnul)
---17180-- REDIR: 0x4ebcad0 (libc.so.6:free) redirected to 0x4c2afe6 (free)
-==17180== Invalid read of size 8
-==17180==    at 0x400AE7: dlist_destroy (dlist.c:91)
-==17180==    by 0x4008DD: main (test.c:92)
-==17180==  Address 0x52051d0 is 16 bytes inside a block of size 24 free'd
-==17180==    at 0x4C2B06D: free (vg_replace_malloc.c:540)
-==17180==    by 0x400984: node_destroy (dlist.c:39)
-==17180==    by 0x400F63: dlist_delete_node_by_node (dlist.c:278)
-==17180==    by 0x400AE2: dlist_destroy (dlist.c:93)
-==17180==    by 0x4008DD: main (test.c:92)
-==17180==  Block was alloc'd at
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400B39: dlist_add_node (dlist.c:114)
-==17180==    by 0x400813: main (test.c:61)
-==17180== 
---17180-- REDIR: 0x4ec6970 (libc.so.6:__GI_memset) redirected to 0x4c30ee0 (memset)
-==17180== 
-==17180== HEAP SUMMARY:
-==17180==     in use at exit: 120 bytes in 5 blocks
-==17180==   total heap usage: 8 allocs, 3 frees, 192 bytes allocated
-==17180== 
-==17180== Searching for pointers to 5 not-freed blocks
-==17180== Checked 69,264 bytes
-==17180== 
-==17180== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 5
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400A04: dlist_create (dlist.c:64)
-==17180==    by 0x4006BF: main (test.c:10)
-==17180== 
-==17180== 24 bytes in 1 blocks are indirectly lost in loss record 2 of 5
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400B39: dlist_add_node (dlist.c:114)
-==17180==    by 0x400881: main (test.c:79)
-==17180== 
-==17180== 24 bytes in 1 blocks are indirectly lost in loss record 3 of 5
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400B39: dlist_add_node (dlist.c:114)
-==17180==    by 0x400892: main (test.c:80)
-==17180== 
-==17180== 24 bytes in 1 blocks are indirectly lost in loss record 4 of 5
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400B39: dlist_add_node (dlist.c:114)
-==17180==    by 0x4008A3: main (test.c:81)
-==17180== 
-==17180== 120 (24 direct, 96 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 5
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x4009C3: dlist_create (dlist.c:57)
-==17180==    by 0x4006BF: main (test.c:10)
-==17180== 
-==17180== LEAK SUMMARY:
-==17180==    definitely lost: 24 bytes in 1 blocks
-==17180==    indirectly lost: 96 bytes in 4 blocks
-==17180==      possibly lost: 0 bytes in 0 blocks
-==17180==    still reachable: 0 bytes in 0 blocks
-==17180==         suppressed: 0 bytes in 0 blocks
-==17180== 
-==17180== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==17180== 
-==17180== 1 errors in context 1 of 2:
-==17180== Invalid read of size 8
-==17180==    at 0x400AE7: dlist_destroy (dlist.c:91)
-==17180==    by 0x4008DD: main (test.c:92)
-==17180==  Address 0x52051d0 is 16 bytes inside a block of size 24 free'd
-==17180==    at 0x4C2B06D: free (vg_replace_malloc.c:540)
-==17180==    by 0x400984: node_destroy (dlist.c:39)
-==17180==    by 0x400F63: dlist_delete_node_by_node (dlist.c:278)
-==17180==    by 0x400AE2: dlist_destroy (dlist.c:93)
-==17180==    by 0x4008DD: main (test.c:92)
-==17180==  Block was alloc'd at
-==17180==    at 0x4C29F73: malloc (vg_replace_malloc.c:309)
-==17180==    by 0x4008FB: node_create (dlist.c:11)
-==17180==    by 0x400B39: dlist_add_node (dlist.c:114)
-==17180==    by 0x400813: main (test.c:61)
-==17180== 
-==17180== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==25601== Memcheck, a memory error detector
+==25601== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25601== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==25601== Command: ./test
+==25601== Parent PID: 8837
+==25601== 
+--25601-- 
+--25601-- Valgrind options:
+--25601--    --leak-check=full
+--25601--    --show-leak-kinds=all
+--25601--    --log-file=log.txt
+--25601--    -v
+--25601--    --error-limit=no
+--25601-- Contents of /proc/version:
+--25601--   Linux version 3.10.0-1127.18.2.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) ) #1 SMP Sun Jul 26 15:27:06 UTC 2020
+--25601-- 
+--25601-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--25601-- Page sizes: currently 4096, max supported 4096
+--25601-- Valgrind library directory: /usr/libexec/valgrind
+--25601-- Reading syms from /home/parallels/workspace/DOUBLYLINKEDLIST_MODULE_TEST/dlist/test
+--25601-- Reading syms from /usr/lib64/ld-2.17.so
+--25601--   Considering /usr/lib/debug/.build-id/27/ffd1fbc69569c776e666474eed723395e6d727.debug ..
+--25601--   .. build-id is valid
+--25601-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--25601--    object doesn't have a symbol table
+--25601--    object doesn't have a dynamic symbol table
+--25601-- Scheduler: using generic scheduler lock implementation.
+--25601-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==25601== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-25601-by-parallels-on-localhost.localdomain
+==25601== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-25601-by-parallels-on-localhost.localdomain
+==25601== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-25601-by-parallels-on-localhost.localdomain
+==25601== 
+==25601== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==25601== don't want to do, unless you know exactly what you're doing,
+==25601== or are doing some strange experiment):
+==25601==   /usr/libexec/valgrind/../../bin/vgdb --pid=25601 ...command...
+==25601== 
+==25601== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==25601==   /path/to/gdb ./test
+==25601== and then give GDB the following command
+==25601==   target remote | /usr/libexec/valgrind/../../bin/vgdb --pid=25601
+==25601== --pid is optional if only one valgrind process is running
+==25601== 
+--25601-- REDIR: 0x4019e30 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c7ed5 (???)
+--25601-- REDIR: 0x4019c00 (ld-linux-x86-64.so.2:index) redirected to 0x580c7eef (???)
+--25601-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--25601-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==25601== WARNING: new redirection conflicts with existing -- ignoring it
+--25601--     old: 0x04019e30 (strlen              ) R-> (0000.0) 0x580c7ed5 ???
+--25601--     new: 0x04019e30 (strlen              ) R-> (2007.0) 0x04c2d1b0 strlen
+--25601-- REDIR: 0x4019db0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2e300 (strcmp)
+--25601-- REDIR: 0x401aa70 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31f90 (mempcpy)
+--25601-- Reading syms from /usr/lib64/libc-2.17.so
+--25601--   Considering /usr/lib/debug/.build-id/d7/8066a9c36f5fd63e2f6ac851ae3515c4c9792a.debug ..
+--25601--   .. build-id is valid
+--25601-- REDIR: 0x4ec7130 (libc.so.6:strcasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--25601-- REDIR: 0x4ec3eb0 (libc.so.6:strnlen) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--25601-- REDIR: 0x4ec9400 (libc.so.6:strncasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--25601-- REDIR: 0x4ec6910 (libc.so.6:memset) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--25601-- REDIR: 0x4ec68c0 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--25601-- REDIR: 0x4ec58a0 (libc.so.6:__GI_strrchr) redirected to 0x4c2cb70 (__GI_strrchr)
+--25601-- REDIR: 0x4ec3dd0 (libc.so.6:__GI_strlen) redirected to 0x4c2d110 (__GI_strlen)
+--25601-- REDIR: 0x4ebc6b0 (libc.so.6:malloc) redirected to 0x4c29eec (malloc)
+--25601-- REDIR: 0x4ec6ae0 (libc.so.6:__GI_mempcpy) redirected to 0x4c31cc0 (__GI_mempcpy)
+--25601-- REDIR: 0x4ecd3c0 (libc.so.6:strchrnul) redirected to 0x4c31ab0 (strchrnul)
+--25601-- REDIR: 0x4ebcad0 (libc.so.6:free) redirected to 0x4c2afe6 (free)
+--25601-- REDIR: 0x4ec6970 (libc.so.6:__GI_memset) redirected to 0x4c30ee0 (memset)
+==25601== 
+==25601== HEAP SUMMARY:
+==25601==     in use at exit: 0 bytes in 0 blocks
+==25601==   total heap usage: 6 allocs, 6 frees, 176 bytes allocated
+==25601== 
+==25601== All heap blocks were freed -- no leaks are possible
+==25601== 
+==25601== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

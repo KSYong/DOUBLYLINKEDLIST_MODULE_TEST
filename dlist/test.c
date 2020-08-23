@@ -21,7 +21,9 @@ int main( int argc, char **argv){
     else{
         printf("    | @ Success to add node in list (data : 1)\n");
     }
-    
+
+    dlist_print_all( list);
+
     node = dlist_find_node_by_data( list, 1);
     if( node == NULL){
         printf("    | ! Failed to find node by data\n");
@@ -58,6 +60,8 @@ int main( int argc, char **argv){
         printf("    | @ Success to delete node by data(data : 1)\n");
     }
 
+    dlist_print_all( list);
+
     rv = dlist_add_node( list, 2);
     if( rv < NORMAL){
         printf("    | ! Failed to add ndoe in list\n");
@@ -66,17 +70,29 @@ int main( int argc, char **argv){
     else{
         printf("    | @ Success to add node by data(data : 2)\n");
     }
-    
+
+    dlist_print_all( list);
+
+    node = dlist_find_node_by_data( list, 2);
+    if( node == NULL){
+        printf("    | ! Failed to find node by data\n");
+        return OBJECT_ERR;
+    }
+    else{
+        printf("    | @ Success to find node by data(data : 2)\n");
+    }
+
     rv = dlist_delete_node_by_node( list, node);
     if( rv < NORMAL){
         printf("    | ! Failed to delete node by node\n");
         return rv;
     }
     else{
-        printf("    | @ Success to delete node by node)\n");
+        printf("    | @ Success to delete node by node\n");
     }
-    
+
     dlist_add_node( list, 1);
+    printf("    | @ Added 1, 2, 3 in list\n");
     dlist_add_node( list, 2);
     dlist_add_node( list, 3);
 
@@ -93,7 +109,7 @@ int main( int argc, char **argv){
 
     printf("\n  test end\n\n");
 }
-    
+
 
 
 
