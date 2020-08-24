@@ -24,8 +24,8 @@ static node_t* node_create(){
 /**
  * @fn static void node_destroy( node_t *target)
  * @brief 생성된 노드 객체를 삭제하는 함수
- * @return void
  * @param target 삭제할 노드 객체
+ * @return void
  */
 static void node_destroy( node_t *target){
     if( target == NULL){
@@ -72,8 +72,8 @@ dlist_t* dlist_create(){
 /**
  * @fn void dlist_destroy( dlist_t *list)
  * @brief 생성된 리스트 객체와 리스트가 갖고 있는 모든 노드들을 삭제하는 함수
- * @return void
  * @param list 삭제할 리스트 객체
+ * @return void
  */
 void dlist_destroy( dlist_t *list){
     if( list){
@@ -99,9 +99,9 @@ void dlist_destroy( dlist_t *list){
 /**
  * @fn int dlist_add_node( dlist_t *list, void* data)
  * @brief 이중연결리스트에 노드를 추가하는 함수
- * @return 에러 열거형 참고 
  * @param list 노드를 추가할 리스트 객체 
  * @param data 추가할 노드의 사용자 데이터
+ * @return 에러 열거형 참고 
  */
 int dlist_add_node( dlist_t *list, void* data){
     if( list){
@@ -147,9 +147,9 @@ int dlist_add_node( dlist_t *list, void* data){
 /**
  * @fn node_t* dlist_find_node_by_data( dlist_t *list, void* data)
  * @brief 주어진 데이터와 일치하는 데이터를 갖는 노드를 찾는 함수 
- * @return 찾은 노드 객체
  * @param list 노드를 찾을 리스트 
  * @param data 주어진 데이터 
+ * @return 찾은 노드 객체 
  */
 node_t* dlist_find_node_by_data( dlist_t *list, void* data){
     if( list){
@@ -177,9 +177,9 @@ node_t* dlist_find_node_by_data( dlist_t *list, void* data){
 /**
  * @fn node_t* dlist_find_node_by_node( dlist_t *list, node_t *target)
  * @brief 주어진 노드와 일치하는 노드를 찾는 함수 
- * @return 찾은 노드 객체
  * @param list 노드를 찾을 리스트
  * @param target 주어진 노드 
+ * @return 찾은 노드 객체 
  */
 node_t* dlist_find_node_by_node( dlist_t *list, node_t *target){
     if( list){
@@ -206,9 +206,9 @@ node_t* dlist_find_node_by_node( dlist_t *list, node_t *target){
 /**
  * @fn int dlist_find_node_data_by_node( dlist_t *list, node_t *target)
  * @brief 주어진 노드와 일치하는 노드의 데이터를 찾는 함수
- * @return 찾은 데이터 
  * @param list 노드를 찾을 리스트
  * @param target 주어진 노드 
+ * @return 찾은 데이터 
  */
 void* dlist_find_node_data_by_node( dlist_t *list, node_t *target){
     if( list){
@@ -235,9 +235,9 @@ void* dlist_find_node_data_by_node( dlist_t *list, node_t *target){
 /**
  * @fn int dlist_delete_node_by_data( dlist_t *list, void* data)
  * @brief 주어진 데이터와 일치하는 노드를 삭제하는 함수 
- * @return 에러 열거형 참고
  * @param list 삭제할 노드를 찾을 리스트
  * @param data 삭제할 노드의 데이터 
+ * @return 에러 열거형 참고 
  */
 int dlist_delete_node_by_data( dlist_t *list, void* data){
     if( list){
@@ -280,9 +280,9 @@ int dlist_delete_node_by_data( dlist_t *list, void* data){
 /**
  * @fn int dlist_delete_node_by_node( dlist_t *list, node_t *target)
  * @brief 주어진 노드와 일치하는 노드를 삭제하는 함수 
- * @return 에러 열거형 참고
  * @param list 삭제할 노드를 찾을 리스트
  * @param target 삭제할 노드
+ * @return 에러 열거형 참고
  */
 int dlist_delete_node_by_node( dlist_t *list, node_t *target){
     if( list){
@@ -335,8 +335,8 @@ int dlist_get_list_length( dlist_t *list){
 /**
  * @fn int dlist_print_all( dlist_t *list)
  * @brief 이중연결리스트의 모든 노드 데이터들을 출력하는 함수
- * @return 에러 열거형 참고 
  * @param list 데이터들을 출력할 리스트 객체
+ * @return 에러 열거형 참고 
  */
 int dlist_print_all( dlist_t *list){
     if( list){
